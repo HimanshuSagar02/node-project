@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RCR Coaching</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script defer src="/app.js"></script>
+  <style>
+    :root { --rcr-yellow:#FFC300; --rcr-black:#0A0A0A; }
+    body { background:#0A0A0A; color:#fff; }
+    .rcr-btn { background:var(--rcr-yellow); color:#000; font-weight:700; }
+    .rcr-btn:hover { filter:brightness(0.95); }
+    .card { background:#111; border:1px solid #222; }
+    .header-blur { background:rgba(10,10,10,0.8); backdrop-filter:saturate(160%) blur(8px); }
+    .footer { border-top:1px solid #222; }
+    a { color: var(--rcr-yellow); }
+  </style>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header-blur sticky top-0 z-30">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <img src="/logo.png" alt="Raj Chem Reactor Logo" class="w-12 h-12 rounded-full object-cover border-2 border-yellow-400">
+        <h1 class="text-3xl font-extrabold"><span class="text-yellow-400">Raj Chem Reactor</span></h1>
+      </div>
+      <nav class="hidden sm:flex items-center gap-6 text-sm">
+        <a href="#courses">Courses</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <span class="text-gray-300">Email: rajchemreactor@gmail.com | Phone: +91-8755501333</span>
+      </nav>
+      <div class="flex items-center gap-3">
+        <button id="openLogin" class="rcr-btn px-4 py-2 rounded-2xl">Login / Signup</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-4 pt-10 pb-8">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">Crack Board Exams with <span class="text-yellow-400">Raj Chem Reactor</span></h2>
+        <p class="mt-4 text-gray-300">Focused coaching for Classes 10th & 12th (PCM/PCB). Learn with structured courses, tests, and doubt support.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="#courses" class="rcr-btn px-5 py-3 rounded-2xl inline-block">Browse Courses</a>
+          <button id="ctaLogin" class="px-5 py-3 rounded-2xl border border-yellow-400">Login</button>
+        </div>
+      </div>
+      <div class="card rounded-3xl p-6 border border-yellow-900">
+        <h3 class="text-xl font-bold mb-3">Why RCR?</h3>
+        <ul class="space-y-2 text-gray-300 list-disc list-inside">
+          <li>Hand-picked notes & PYQs</li>
+          <li>Weekly tests & analytics</li>
+          <li>Doubt clearance sessions</li>
+          <li>Pay securely with Razorpay</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section id="courses" class="max-w-6xl mx-auto px-4 py-16">
+    <h3 class="text-3xl font-extrabold mb-6 text-center">Popular Courses</h3>
+    <div id="courseGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-6xl mx-auto px-4 py-16">
+    <h3 class="text-3xl font-extrabold mb-6">About Raj Chem Reactor</h3>
+    <p class="text-gray-300 text-lg leading-relaxed">Raj Chem Reactor is a premier coaching platform dedicated to helping students excel in Board exams. We specialize in Classes 10th and 12th (PCM/PCB) with a unique blend of focused content, expert mentoring, and personalized doubt clearing sessions. Our mission is to make quality education accessible and effective for every student.</p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 py-16">
+    <h3 class="text-3xl font-extrabold mb-6">Contact Us</h3>
+    <p class="text-gray-300 text-lg">Get in touch with us for any queries or support.</p>
+    <div class="mt-4 space-y-2">
+      <p class="text-gray-300"><strong>Email:</strong> rajchemreactor@gmail.com</p>
+      <p class="text-gray-300"><strong>Phone:</strong> +91-8755501333</p>
+      <p class="text-gray-300"><strong>Address:</strong> Maswasi, Uttar pradesh, India</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-gray-400 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex flex-col md:flex-row items-center gap-4">
+        <p>© <span id="year"></span> Raj Chem Reactor Coaching. All rights reserved.</p>
+        <span class="text-gray-300">Email: rajchemreactor@gmail.com | Phone: +91-8755501333</span>
+      </div>
+      <p>Built with ❤️ in yellow & black.</p>
+    </div>
+  </footer>
+
+  <!-- Login/Signup Modal -->
+  <div id="authModal" class="fixed inset-0 hidden bg-black bg-opacity-70 items-center justify-center p-4">
+    <div class="card w-full max-w-md rounded-3xl p-6 relative">
+      <button id="closeModal" class="absolute right-3 top-3 px-3 py-1 border border-yellow-400 rounded-2xl">✕</button>
+      <h3 class="text-2xl font-bold mb-4">Welcome to <span class="text-yellow-400">Raj Chem Reactor</span></h3>
+
+      <div class="mb-4 flex gap-2">
+        <button id="tabLogin" class="flex-1 rcr-btn px-4 py-2 rounded-2xl">Login</button>
+        <button id="tabSignup" class="flex-1 px-4 py-2 rounded-2xl border border-yellow-400">Signup</button>
+      </div>
+
+      <!-- Login form -->
+      <form id="loginForm" class="space-y-3">
+        <input class="w-full p-3 rounded-xl bg-black border border-yellow-900" type="email" name="email" placeholder="Email" required />
+        <input class="w-full p-3 rounded-xl bg-black border border-yellow-900" type="password" name="password" placeholder="Password" required />
+        <button class="w-full rcr-btn px-4 py-3 rounded-2xl" type="submit">Login</button>
+      </form>
+
+      <!-- Signup form -->
+      <form id="signupForm" class="space-y-3 hidden">
+        <input class="w-full p-3 rounded-xl bg-black border border-yellow-900" type="text" name="name" placeholder="Full name" required />
+        <input class="w-full p-3 rounded-xl bg-black border border-yellow-900" type="email" name="email" placeholder="Email" required />
+        <input class="w-full p-3 rounded-xl bg-black border border-yellow-900" type="password" name="password" placeholder="Password" required />
+        <button class="w-full rcr-btn px-4 py-3 rounded-2xl" type="submit">Create account</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
