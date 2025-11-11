@@ -10,3 +10,10 @@
 - [x] Update README.md: Remove 'change_me' placeholders and update instructions.
 - [x] Test payment flow: Server running, health check ok, key endpoint returns key (note: using test key from .env).
 - [x] Thorough testing: Auth register/login work, payment order creation successful, webhook properly requires secret, HTML serves correctly without hardcoded key.
+
+# TODO: Add New Courses
+
+## Steps to Complete
+
+- [x] Update COURSE_LIST in public/app.js: Add new courses for Chemistry, Physics, Biology, Math, 10th Science.
+- [x] Test the site: Run server and verify new courses appear in the courses section.

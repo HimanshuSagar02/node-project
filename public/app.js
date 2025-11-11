@@ -1,9 +1,48 @@
 const API = window.location.origin;
 
 const COURSE_LIST = [
-  { id: 'c1', title: 'Class 10th Maths Booster', description: 'Complete syllabus coverage with PYQs, practice tests, and doubt clearing sessions. Ideal for board exam preparation.', price: 251, image: '/rcr1.jpg' },
-  { id: 'c2', title: 'Class 12th PCM Crash Course', description: 'Intensive crash course covering Physics, Chemistry, and Maths with focused study materials and mock tests.', price: 251, image: '/rcr1.jpg' },
-  { id: 'c3', title: 'Class 12th PCB Crash Course', description: 'Comprehensive crash course for Physics, Chemistry, and Biology with expert guidance and assessment tools.', price: 251, image: '/rcr1.jpg' }
+  { 
+    id: 'c4', 
+    title: 'Class 10th Science Booster', 
+    description: 'Comprehensive coverage of Physics, Chemistry, and Biology for 10th grade board exams with PYQs and practice sessions.', 
+    price: 251, 
+    image: '/rcr1.jpg' 
+  },
+  { 
+    id: 'c12', 
+    title: 'Class 10th Maths Fundamentals', 
+    description: 'Master essential Maths topics including algebra, geometry, and trigonometry with step-by-step guidance.', 
+    price: 251, 
+    image: '/rcr1.jpg' 
+  },
+  { 
+    id: 'c5', 
+    title: 'Class 12th Chemistry ', 
+    description: 'In-depth Chemistry course with organic, inorganic, and physical chemistry topics, mock tests, and doubt sessions.', 
+    price: 251, 
+    image: '/rcr1.jpg' 
+  },
+  { 
+    id: 'c6', 
+    title: 'Class 12th Physics ', 
+    description: 'Detailed Physics course covering mechanics, optics, electricity, and modern physics with practical examples.', 
+    price: 251, 
+    image: '/rcr1.jpg' 
+  },
+  { 
+    id: 'c7', 
+    title: 'Class 12th Biology ', 
+    description: 'Complete Biology syllabus including botany, zoology, genetics, and ecology with interactive sessions.', 
+    price: 251, 
+    image: '/rcr1.jpg' 
+  },
+  { 
+    id: 'c8', 
+    title: 'Class 12th Maths ', 
+    description: 'Advanced Maths course with calculus, algebra, geometry, and statistics for board exam success.', 
+    price: 251, 
+    image: '/rcr1.jpg' 
+  }
 ];
 
 const yearEl = document.getElementById('year');
@@ -33,7 +72,7 @@ const grid = document.getElementById('courseGrid');
 if (grid) {
   COURSE_LIST.forEach(c => {
     const el = document.createElement('div');
-    el.className = 'card rounded-3xl p-5';
+    el.className = 'card course-card rounded-3xl p-5';
     el.innerHTML = `
       <div class="h-40 bg-black rounded-2xl border border-yellow-900 mb-4 flex items-center justify-center overflow-hidden">
         <img src="${c.image}" alt="${c.title}" class="w-full h-full object-cover">
@@ -46,6 +85,8 @@ if (grid) {
       </div>`;
     grid.appendChild(el);
   });
+
+  
 
   grid.addEventListener('click', async (e) => {
     const btn = e.target.closest('button[data-id]');

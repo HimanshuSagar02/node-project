@@ -12,10 +12,18 @@
     body { background:#0A0A0A; color:#fff; }
     .rcr-btn { background:var(--rcr-yellow); color:#000; font-weight:700; }
     .rcr-btn:hover { filter:brightness(0.95); }
-    .card { background:#111; border:1px solid #222; }
+    .card { background:#111; border:1px solid #222; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(255, 195, 0, 0.1); }
     .header-blur { background:rgba(10,10,10,0.8); backdrop-filter:saturate(160%) blur(8px); }
     .footer { border-top:1px solid #222; }
     a { color: var(--rcr-yellow); }
+    .course-card { position: relative; overflow: hidden; }
+    .course-card img { transition: transform 0.3s ease; }
+    .course-card:hover img { transform: scale(1.05); }
+    .achievement-card { transition: all 0.3s ease; }
+    .achievement-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(255, 195, 0, 0.2); }
+    .faculty-card { transition: all 0.3s ease; }
+    .faculty-card:hover { transform: scale(1.05); }
   </style>
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
@@ -44,58 +52,57 @@
     <div class="grid md:grid-cols-2 gap-8 items-center">
       <div>
         <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">Crack Board Exams with <span class="text-yellow-400">Raj Chem Reactor</span></h2>
-        <p class="mt-4 text-gray-300">Focused coaching for Classes 10th & 12th (PCM/PCB). Learn with structured courses, tests, and doubt support.</p>
+        <p class="mt-4 text-gray-300">India's Best Coaching Institute for Classes 10th & 12th (PCM/PCB). Join thousands of successful students with our proven methodology, expert faculty, and personalized doubt support.</p>
         <div class="mt-6 flex gap-3">
           <a href="#courses" class="rcr-btn px-5 py-3 rounded-2xl inline-block">Browse Courses</a>
           <button id="ctaLogin" class="px-5 py-3 rounded-2xl border border-yellow-400">Login</button>
         </div>
       </div>
       <div class="card rounded-3xl p-6 border border-yellow-900">
-        <h3 class="text-xl font-bold mb-3">Why RCR?</h3>
+        <h3 class="text-xl font-bold mb-3">Why Choose RCR?</h3>
         <ul class="space-y-2 text-gray-300 list-disc list-inside">
-          <li>Hand-picked notes & PYQs</li>
-          <li>Weekly tests & analytics</li>
-          <li>Doubt clearance sessions</li>
-          <li>Pay securely with Razorpay</li>
+          <li>🏆 99%+ Toppers in Board Exams</li>
+          <li>👨‍🏫 IITian Faculty from IIT Delhi</li>
+          <li>📚 Hand-picked notes & PYQs</li>
+          <li>📊 Weekly tests & detailed analytics</li>
+          <li>💬 24/7 doubt clearance sessions</li>
+          <li>💳 Pay securely with Razorpay</li>
         </ul>
       </div>
     </div>
   </section>
 
+  <!-- Achievements & Toppers -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h3 class="text-3xl font-extrabold mb-8 text-center">Our Success Stories</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card achievement-card rounded-3xl p-6 text-center border border-yellow-900">
+        <div class="text-6xl mb-4">🏆</div>
+        <h4 class="text-2xl font-bold mb-2">99%+ Toppers</h4>
+        <p class="text-gray-300">Our students consistently achieve 99%+ in board exams, securing top ranks in CBSE and state boards.</p>
+      </div>
+      <div class="card achievement-card rounded-3xl p-6 text-center border border-yellow-900">
+        <div class="text-6xl mb-4">🎓</div>
+        <h4 class="text-2xl font-bold mb-2">IIT Delhi Faculty</h4>
+        <p class="text-gray-300">Learn from experienced IITians with decades of teaching experience and proven track record.</p>
+      </div>
+      <div class="card achievement-card rounded-3xl p-6 text-center border border-yellow-900">
+        <div class="text-6xl mb-4">📈</div>
+        <h4 class="text-2xl font-bold mb-2">Best Institution</h4>
+        <p class="text-gray-300">Recognized as India's premier coaching institute for science education excellence.</p>
+      </div>
+    </div>
+  </section>
+
+
   <!-- Courses -->
   <section id="courses" class="max-w-6xl mx-auto px-4 py-16">
-    <h3 class="text-3xl font-extrabold mb-6 text-center">Popular Courses</h3>
-    <div id="courseGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <h3 class="text-3xl font-extrabold mb-4 text-center">Popular Courses</h3>
+    <p class="text-gray-300 text-center mb-8">Choose from our comprehensive courses for 10th and 12th grade students, covering Maths, Physics, Chemistry, and Biology.</p>
+    <div id="courseGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="max-w-6xl mx-auto px-4 py-16">
-    <h3 class="text-3xl font-extrabold mb-6">About Raj Chem Reactor</h3>
-    <p class="text-gray-300 text-lg leading-relaxed">Raj Chem Reactor is a premier coaching platform dedicated to helping students excel in Board exams. We specialize in Classes 10th and 12th (PCM/PCB) with a unique blend of focused content, expert mentoring, and personalized doubt clearing sessions. Our mission is to make quality education accessible and effective for every student.</p>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="max-w-6xl mx-auto px-4 py-16">
-    <h3 class="text-3xl font-extrabold mb-6">Contact Us</h3>
-    <p class="text-gray-300 text-lg">Get in touch with us for any queries or support.</p>
-    <div class="mt-4 space-y-2">
-      <p class="text-gray-300"><strong>Email:</strong> rajchemreactor@gmail.com</p>
-      <p class="text-gray-300"><strong>Phone:</strong> +91-8755501333</p>
-      <p class="text-gray-300"><strong>Address:</strong> Maswasi, Uttar pradesh, India</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-gray-400 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex flex-col md:flex-row items-center gap-4">
-        <p>© <span id="year"></span> Raj Chem Reactor Coaching. All rights reserved.</p>
-        <span class="text-gray-300">Email: rajchemreactor@gmail.com | Phone: +91-8755501333</span>
-      </div>
-      <p>Built with ❤️ in yellow & black.</p>
-    </div>
-  </footer>
 
   <!-- Login/Signup Modal -->
   <div id="authModal" class="fixed inset-0 hidden bg-black bg-opacity-70 items-center justify-center p-4">
@@ -126,3 +133,64 @@
   </div>
 </body>
 </html>
+
+<!-- Faculty Spotlight -->
+  <section class="max-w-6xl mx-auto px-4 py-16 bg-gradient-to-r from-yellow-900/20 to-transparent rounded-3xl">
+    <div class="text-center mb-12">
+      <h3 class="text-3xl font-extrabold mb-4">Meet Our Expert Faculty</h3>
+      <p class="text-gray-300">Our IIT Delhi alumni bring world-class education to your doorstep</p>
+    </div>
+      <div class="card faculty-card rounded-3xl p-6 text-center">
+        <div class="w-20 h-20 bg-yellow-400 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-black">P</div>
+        <h4 class="font-bold mb-1">Mr.Mohit Kumar</h4>
+        <p class="text-yellow-400 text-sm mb-2">Physics Specialist</p>
+        <p class="text-gray-400 text-xs">IIT Delhi , 6+ years teaching</p>
+      </div>
+      <div class="card faculty-card rounded-3xl p-6 text-center">
+        <div class="w-20 h-20 bg-yellow-400 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-black">M</div>
+        <h4 class="font-bold mb-1">Mohd. Ikram And Khushbu Jain </h4>
+        <p class="text-yellow-400 text-sm mb-2">Mathematics Guru</p>
+        <p class="text-gray-400 text-xs"> M.Sc Maths </p>
+      </div>
+      <div class="card faculty-card rounded-3xl p-6 text-center">
+        <div class="w-20 h-20 bg-yellow-400 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-black">B</div>
+        <h4 class="font-bold mb-1">Mr. Pankaj Kumar And Ms. Kalpana Bharti</h4>
+        <p class="text-yellow-400 text-sm mb-2">Biology Expert</p>
+        <p class="text-gray-400 text-xs">M.Sc. Biology</p>
+      </div>
+    </div>
+  </section>
+
+<!-- Footer -->
+<footer class="bg-black border-t border-yellow-900 py-10">
+  <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-gray-300">
+    
+    <!-- Brand & About -->
+    <div>
+      <h2 class="text-2xl font-extrabold text-yellow-400 mb-3">Raj Chem Reactor</h2>
+      <p class="text-sm leading-relaxed">
+        Empowering students of Classes 10th & 12th with quality coaching in Science, Maths, and more.
+        Join RCR to learn smart, test confidently, and achieve your dream results.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h3 class="text-xl font-bold text-yellow-400 mb-3">Quick Links</h3>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#courses" class="hover:text-yellow-300">Courses</a></li>
+        <li><a href="#about" class="hover:text-yellow-300">About Us</a></li>
+        <li><a href="#contact" class="hover:text-yellow-300">Contact</a></li>
+        <li><a href="#" class="hover:text-yellow-300">Login / Signup</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact & Social -->
+    <div>
+      <h3 class="text-xl font-bold text-yellow-400 mb-3">Contact</h3>
+      <p class="text-sm">📧 <a href="mailto:rajchemreactor@gmail.com" class="hover:text-yellow-300">rajchemreactor@gmail.com</a></p>
+      <p class="text-sm mb-4">📞 +91-8755501333</p>
+
+      <div class="flex space-x-4 mt-3">
+        <a href="#" class="hover:text-yellow-300"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0H1.325C.594 0 0 .593 0 1.326V22.67c0 .732.594 1.325 1.325 1.325h11.495V14.7h-3.13v-3.63h3.13V8.41c0-3.1 1.893-4.788 4.657-4.788 1.325 0 2.463.098 2.794.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.762v2.312h3.59l-.467 3.63h-3.123V24h6.117c.73 0 1.324-.593 1.324-1.325V1.326C24 .593 23.405 0 22.675 0z"/></svg></a>
+        <a href="#" class="hover:text-yellow-300"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d
