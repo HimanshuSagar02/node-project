@@ -96,12 +96,90 @@
 
 
   <!-- Courses -->
-  <section id="courses" class="max-w-6xl mx-auto px-4 py-16">
-    <h3 class="text-3xl font-extrabold mb-4 text-center">Popular Courses</h3>
-    <p class="text-gray-300 text-center mb-8">Choose from our comprehensive courses for 10th and 12th grade students, covering Maths, Physics, Chemistry, and Biology.</p>
-    <div id="courseGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-    </div>
-  </section>
+ <!-- Courses -->
+<section id="courses" class="max-w-6xl mx-auto px-4 py-16">
+  <h3 class="text-3xl font-extrabold mb-4 text-center">Popular Courses</h3>
+  <p class="text-gray-600 text-center mb-8">
+    Choose from our comprehensive courses for 10th and 12th grade students, covering Maths, Physics, Chemistry, and Biology.
+  </p>
+
+  <!-- Course Cards Container -->
+  <div id="courseGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+</section>
+
+<script>
+  // ✅ Course List
+  const COURSE_LIST = [
+    { 
+      id: 'c4', 
+      title: 'Class 10th Science Booster', 
+      description: 'Comprehensive coverage of Physics, Chemistry, and Biology for 10th grade board exams with PYQs and practice sessions.', 
+      price: 251, 
+      image: '/rcr1.jpg' 
+    },
+    { 
+      id: 'c12', 
+      title: 'Class 10th Maths Fundamentals', 
+      description: 'Master essential Maths topics including algebra, geometry, and trigonometry with step-by-step guidance.', 
+      price: 251, 
+      image: '/rcr1.jpg' 
+    },
+    { 
+      id: 'c5', 
+      title: 'Class 12th Chemistry', 
+      description: 'In-depth Chemistry course with organic, inorganic, and physical chemistry topics, mock tests, and doubt sessions.', 
+      price: 251, 
+      image: '/rcr1.jpg' 
+    },
+    { 
+      id: 'c6', 
+      title: 'Class 12th Physics', 
+      description: 'Detailed Physics course covering mechanics, optics, electricity, and modern physics with practical examples.', 
+      price: 251, 
+      image: '/rcr1.jpg' 
+    },
+    { 
+      id: 'c7', 
+      title: 'Class 12th Biology', 
+      description: 'Complete Biology syllabus including botany, zoology, genetics, and ecology with interactive sessions.', 
+      price: 251, 
+      image: '/rcr1.jpg' 
+    },
+    { 
+      id: 'c8', 
+      title: 'Class 12th Maths', 
+      description: 'Advanced Maths course with calculus, algebra, geometry, and statistics for board exam success.', 
+      price: 251, 
+      image: '/rcr1.jpg' 
+    }
+  ];
+
+  // ✅ Render Courses Dynamically
+  const courseGrid = document.getElementById("courseGrid");
+
+  COURSE_LIST.forEach(course => {
+    courseGrid.innerHTML += `
+      <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+        <img src="${course.image}" alt="${course.title}" class="w-full h-40 object-cover" />
+        <div class="p-4 flex flex-col justify-between h-[230px]">
+          <div>
+            <h3 class="text-lg font-bold mb-1 text-gray-800">${course.title}</h3>
+            <p class="text-gray-600 mb-2 text-sm">${course.description}</p>
+          </div>
+          <div class="flex justify-between items-center mt-3">
+            <span class="text-blue-600 font-semibold text-lg">₹${course.price}</span>
+            <a href="https://rzp.io/rzp/1Z8mhEW" target="_blank" rel="noopener noreferrer">
+              <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                Pay ₹${course.price}
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+</script>
+
 
 
   <!-- Login/Signup Modal -->

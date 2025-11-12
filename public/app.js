@@ -44,6 +44,27 @@ const COURSE_LIST = [
     image: '/rcr1.jpg' 
   }
 ];
+const PayButton = () => (
+  <a
+    href="https://razorpay.me/@himanshusagar9094"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <button
+      style={{
+        backgroundColor: "#2563eb",
+        color: "white",
+        padding: "10px 20px",
+        borderRadius: "8px",
+        border: "none",
+        cursor: "pointer",
+      }}
+    >
+      Pay ₹251 Now
+    </button>
+  </a>
+);
+
 
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
